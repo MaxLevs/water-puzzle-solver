@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+}
+
+.tube {
+  margin: 20px;
+}
