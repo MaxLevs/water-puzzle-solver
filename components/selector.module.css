@@ -1,0 +1,16 @@
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  font-size: x-large;
+  margin: 10px;
+}
+
+.input {
+  font-size: x-large;
+  margin: 10px;
+  width: 40px;
+  text-align: center;
+}
