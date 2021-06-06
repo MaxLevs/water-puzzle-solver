@@ -1,8 +1,37 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import tubeLib from '../lib/tubes'
+import stateLib from '../lib/states'
 
 export default function Home() {
+
+  var tubes = [
+    ["1", "2", "3", "4"],
+    ["5", "6", "6", "5"],
+    ["7", "3", "8", "9"],
+    ["8", "4", "1", "10"],
+    ["3", "10", "9", "11"],
+    ["12", "12", "2", "9"],
+    ["8", "3", "11", "4"],
+    ["7", "6", "5", "10"],
+    ["9", "12", "4", "1"],
+    ["11", "7", "1", "8"],
+    ["6", "2", "5", "11"],
+    ["12", "10", "2", "7"],
+    [],
+    []
+  ];
+
+  let history = [];
+  history.push(tubes)
+
+  let { stackI, stackJ } = stateLib.resolve(history)
+
+  console.log(history)
+  console.log(stackI)
+  console.log(stackJ)
+
   return (
     <div className={styles.container}>
       <Head>
