@@ -12,7 +12,8 @@ export default function Home() {
   const PAGE_STATUSES = {
     NUMBER_INPUT: 0,
     COLOR_INPUT: 1,
-    SOLUTION_OUTPUT: 2
+    SOLUTION_OUTPUT: 2,
+    SOLUTION_NOT_FOUND: 3
   }
   const [totalNumber, setTotalNumber] = useState('')
   const [emptyNumber, setEmptyNumber] = useState('')
@@ -47,8 +48,16 @@ export default function Home() {
     let historyLocal = []
     historyLocal.push(tubes)
     stateLib.resolve(historyLocal)
-    setHistory(historyLocal)
-    setPageStatus(PAGE_STATUSES.SOLUTION_OUTPUT)
+    if (!historyLocal.length) {
+      setPageStatus(PAGE_STATUSES.SOLUTION_NOT_FOUND)
+    } else {
+      setHistory(historyLocal)
+      setPageStatus(PAGE_STATUSES.SOLUTION_OUTPUT)
+    }
+  }
+
+  const backToStart = function () {
+    setPageStatus(PAGE_STATUSES.COLOR_INPUT)
   }
 
   function PageComponent() {
@@ -80,6 +89,13 @@ export default function Home() {
       case PAGE_STATUSES.SOLUTION_OUTPUT:
         return (
           <Solution history={history} />
+        )
+      case PAGE_STATUSES.SOLUTION_NOT_FOUND:
+        return (
+          <>
+            <h2>No se ha encontrado una solución. Revisa los datos introducidos.</h2>
+            <button onClick={() => backToStart()}>Volver</button>
+          </>
         )
     }
   }
