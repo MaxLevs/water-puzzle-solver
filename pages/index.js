@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Tube from '../components/tube'
 import State from '../components/state'
+import Solution from '../components/solution'
 import styles from '../styles/Home.module.css'
 import tubeLib from '../lib/tubes'
 import stateLib from '../lib/states'
@@ -25,12 +26,33 @@ export default function Home() {
     []
   ];
 
+  let colors = [
+    "red",
+    "blue",
+    "palegreen",
+    "rebeccapurple",
+    "grey",
+    "orange",
+    "salmon",
+    "maroon",
+    "green",
+    "lemonchiffon",
+    "lightskyblue",
+    "yellowgreen"
+  ]
+
+  var tubes2 = tubes.map((tube) => {
+    return tube.map((number) => colors[number - 1])
+  })
+
+  console.log(tubes2)
+
   let history = [];
-  history.push(tubes)
+  history.push(tubes2)
 
   let { stackI, stackJ } = stateLib.resolve(history)
 
-  console.log(history)
+  //console.log(history)
   console.log(stackI)
   console.log(stackJ)
 
@@ -41,6 +63,27 @@ export default function Home() {
     ['green', 'red', 'blue', 'red'],
     [],
     []
+  ]
+  let stateExample2 = [
+    ['red', 'blue', 'blue', 'blue'],
+    ['red', 'green', 'green', 'green'],
+    ['green', 'red', 'blue'],
+    ['red'],
+    []
+  ]
+  let stateExample3 = [
+    ['red', 'blue', 'blue', 'blue'],
+    ['red'],
+    ['green', 'red', 'blue'],
+    ['red'],
+    ['green', 'green', 'green']
+  ]
+
+
+  let historyExample = [
+    stateExample,
+    stateExample2,
+    stateExample3
   ]
 
   return (
@@ -58,20 +101,10 @@ export default function Home() {
 
         <h1>Ejemplo de Estado</h1>
         <State tubes={stateExample} />
-      </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+        <h1>Ejemplo de Solución</h1>
+        <Solution history={history} />
+      </main>
     </div>
   )
 }

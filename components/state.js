@@ -5,9 +5,9 @@ export default function State({ tubes }) {
 
     return (
         <div className={styles.container}>
-            {tubes.map((el) => {
+            {tubes.map((el, index) => {
                 return (
-                    <div className={styles.tube}>
+                    <div key={index} className={styles.tube}>
                         <Tube colors={el} />
                     </div>
                 )
