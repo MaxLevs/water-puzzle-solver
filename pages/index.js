@@ -1,6 +1,6 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import { useState } from 'react';
-import Tube from '../components/tube'
 import State from '../components/state'
 import Solution from '../components/solution'
 import Selector from '../components/selector'
@@ -56,6 +56,11 @@ export default function Home() {
       case PAGE_STATUSES.NUMBER_INPUT:
         return (
           <>
+            <Image src="/logo.webp"
+              alt="Water Sort Puzzle Logo"
+              width={100}
+              height={100}
+            ></Image>
             <h1>Introduce los datos</h1>
             <Selector onClick={setNumberOfTubes} />
           </>
@@ -85,7 +90,7 @@ export default function Home() {
         <meta name="description" content="Webapp to solve these tricky puzzles and laught at your friends" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.webp" />
       </Head>
 
       <main className={styles.main}>
