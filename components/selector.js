@@ -19,7 +19,7 @@ export default function Selector({ onClick }) {
             <input type='text' className={styles.input} onChange={event => setEmptyNumber(event.target.value)}></input>
             <br />
             <div className={styles.buttonContainer}>
-                <button className={styles.button} disabled={!totalNumber || !emptyNumber} onClick={() => handleClick()}>Go</button>
+                <button className={styles.button} disabled={!totalNumber || !emptyNumber} onClick={() => handleClick()}>GO</button>
             </div>
         </div>
     )

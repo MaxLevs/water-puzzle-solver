@@ -5,7 +5,19 @@
 
 .button {
   font-size: x-large;
+  font-weight: bold;
+  border-radius: 15px;
+  border: none;
+  background-color: gold;
+  box-shadow: 0 5px darkgoldenrod;
   margin: 10px;
+  height: 45px;
+  width: 80px;
+}
+
+.button:active {
+  box-shadow: 0 1px darkgoldenrod;
+  transform: translateY(4px);
 }
 
 .input {

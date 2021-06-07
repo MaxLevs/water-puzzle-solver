@@ -15,7 +15,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 700px;
+  max-width: 600px;
 }
 
 .colorSelection {
@@ -29,8 +29,23 @@
   align-items: center;
 }
 
+.centeredText{
+  text-align: center;
+}
+
 .button {
   font-size: x-large;
+  font-weight: bold;
+  border-radius: 15px;
+  border: none;
+  background-color: gold;
+  box-shadow: 0 5px darkgoldenrod;
+  padding: 10px 20px;
+}
+
+.button:active {
+  box-shadow: 0 1px darkgoldenrod;
+  transform: translateY(4px);
 }
 
 .footer {

@@ -83,18 +83,21 @@ export default function Home() {
               <div className={styles.colorSelection} style={{ backgroundColor: color }}></div>
             </div>
             <ColorSelector selectColor={setColor} />
-            < button className={styles.button} onClick={solvePuzzle}>Resolver</button>
+            < button className={styles.button} onClick={solvePuzzle}>RESOLVER</button>
           </>
         )
       case PAGE_STATUSES.SOLUTION_OUTPUT:
         return (
-          <Solution history={history} />
+          <>
+            <Solution history={history} />
+            <button className={styles.button} onClick={() => backToStart()}>VOLVER</button>
+          </>
         )
       case PAGE_STATUSES.SOLUTION_NOT_FOUND:
         return (
           <>
-            <h2>No se ha encontrado una solución. Revisa los datos introducidos.</h2>
-            <button onClick={() => backToStart()}>Volver</button>
+            <h2 className={styles.centeredText}>No se ha encontrado una solución. Revisa los datos introducidos.</h2>
+            <button className={styles.button} onClick={() => backToStart()}>VOLVER</button>
           </>
         )
     }
