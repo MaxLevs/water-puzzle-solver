@@ -77,12 +77,11 @@ export default function Home() {
       case PAGE_STATUSES.COLOR_INPUT:
         return (
           <>
-            <State tubes={tubes} numberOfReadOnly={emptyNumber} colorSelected={color} onClick={handleClick} />
             <div className={styles.colorSelectionContainer} >
-              <h1>Tu selección: </h1>
-              <div className={styles.colorSelection} style={{ backgroundColor: color }}></div>
+              <h1>Rellena los tubos como el nivel que quieres solucionar</h1>
             </div>
-            <ColorSelector selectColor={setColor} />
+            <State tubes={tubes} numberOfReadOnly={emptyNumber} colorSelected={color} onClick={handleClick} />
+            <ColorSelector colorSelected={color} selectColor={setColor} />
             < button className={styles.button} onClick={solvePuzzle}>RESOLVER</button>
           </>
         )
