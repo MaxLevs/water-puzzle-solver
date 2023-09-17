@@ -23,6 +23,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED 1
+RUN mv ./docker.next.config.js ./next.config.js
 RUN npm run build
 
 
