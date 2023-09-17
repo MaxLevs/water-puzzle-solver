@@ -70,7 +70,7 @@ export default function Home() {
               width={100}
               height={100}
             ></Image>
-            <h1>Introduce los datos</h1>
+            <h1>Configure game settings</h1>
             <Selector onClick={setNumberOfTubes} />
           </>
         )
@@ -78,24 +78,24 @@ export default function Home() {
         return (
           <>
             <div className={styles.colorSelectionContainer} >
-              <h1>Rellena los tubos como el nivel que quieres solucionar</h1>
+              <h1>Use colors to fill tubes until they looks like in your puzzle</h1>
             </div>
             <State tubes={tubes} numberOfReadOnly={emptyNumber} colorSelected={color} onClick={handleClick} />
             <ColorSelector colorSelected={color} selectColor={setColor} />
-            < button className={styles.button} onClick={solvePuzzle}>RESOLVER</button>
+            < button className={styles.button} onClick={solvePuzzle}>SOLVE</button>
           </>
         )
       case PAGE_STATUSES.SOLUTION_OUTPUT:
         return (
           <>
             <Solution history={history} />
-            <button className={styles.button} onClick={() => backToStart()}>VOLVER</button>
+            <button className={styles.button} onClick={() => backToStart()}>CLOSE</button>
           </>
         )
       case PAGE_STATUSES.SOLUTION_NOT_FOUND:
         return (
           <>
-            <h2 className={styles.centeredText}>No se ha encontrado una solución. Revisa los datos introducidos.</h2>
+            <h2 className={styles.centeredText}>Solusion's not found. Check your colors</h2>
             <button className={styles.button} onClick={() => backToStart()}>VOLVER</button>
           </>
         )
